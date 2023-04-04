@@ -1,6 +1,7 @@
 Запуск jar как сервиса Windows при помощи Apache Commons Daemon.
 
 Ссылки:
+
 https://commons.apache.org/proper/commons-daemon/procrun.html
 
 https://cwiki.apache.org/confluence/display/commons/Daemon
@@ -16,4 +17,4 @@ https://cwiki.apache.org/confluence/display/commons/Daemon
 Запустить uninstall.bat для удаления сервиса TEST
 
 
-Может быть проблемы при использовании х32 и х64 файла prunsrv.exe. Говорят, мол лучше юзать х32, чтобы он мог запуститься и там и там
+Может быть проблемы при использовании х32 и х64 файла prunsrv.exe. Говорят, мол лучше юзать х32, чтобы он мог запуститься и там и там, но походу и сам JDK должен быть х32, но т.к. он х64, то нихрена не работает. Поэтому юзаю х64
