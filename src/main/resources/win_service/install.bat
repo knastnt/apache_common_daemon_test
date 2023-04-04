@@ -1,0 +1,2 @@
+chcp 1251
+prunsrv //IS//TEST --Startup=auto --StartMode=jvm --StopMode=jvm --Jvm="%cd%\jdk-11.0.18\bin\server\jvm.dll" --JavaHome="%cd%\jdk-11.0.18" --Classpath=apache_common_daemon_test-1.0-SNAPSHOT.jar --StartClass="org.example.Main" --StartMethod=windowsStart --StopClass="org.example.Main" --StopMethod=windowsStop --LogLevel=DEBUG --LogPath="%cd%" --StdOutput="%cd%\stdout.log" --StdError="%cd%\stderr.log"
