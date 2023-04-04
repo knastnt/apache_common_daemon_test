@@ -13,15 +13,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/commons-daemon/commons-daemon -->
-        <dependency>
-            <groupId>commons-daemon</groupId>
-            <artifactId>commons-daemon</artifactId>
-            <version>1.3.3</version>
-        </dependency>
 
-    </dependencies>
     <packaging>jar</packaging>
     <build>
         <plugins>
@@ -74,6 +66,21 @@
                             <resources>
                                 <resource>
                                     <directory>src/main/resources/win_service</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-linux_daemon-files</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/linux_daemon</directory>
                                 </resource>
                             </resources>
                         </configuration>

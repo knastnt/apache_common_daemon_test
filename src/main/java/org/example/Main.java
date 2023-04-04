@@ -1,7 +1,5 @@
 package org.example;
 
-import org.apache.commons.daemon.Daemon;
-import org.apache.commons.daemon.DaemonContext;
 import org.example.cls.Engine;
 
 import java.util.Scanner;
@@ -11,7 +9,7 @@ import java.util.logging.Logger;
  * Launch the Engine from a variety of sources, either through a main() or invoked through
  * Apache Daemon.
  */
-public class Main implements Daemon {
+public class Main {
     private static final Logger log = Logger.getLogger("Main");
     private static Engine engine = null;
 
@@ -35,6 +33,8 @@ public class Main implements Daemon {
         }
 
     }
+
+    // ------ For Windows service. Start ------ //
 
     public static void windowsStart(String args[]) {
         log.info("windowsStart called");
@@ -61,28 +61,31 @@ public class Main implements Daemon {
         }
     }
 
+    // ------ For Windows service. End ------ //
+
+
+    // ------ For Linux daemon. Start ------ //
+
     // Implementing the Daemon interface is not required for Windows but is for Linux
-    @Override
-    public void init(DaemonContext arg0) throws Exception {
+    public void init(String[] arguments) throws Exception {
         log.info("Daemon init");
     }
 
-    @Override
     public void start() {
         log.info("Daemon start");
         initialize();
     }
 
-    @Override
     public void stop() {
         log.info("Daemon stop");
         terminate();
     }
 
-    @Override
     public void destroy() {
         log.info("Daemon destroy");
     }
+
+    // ------ For Linux daemon. End ------ //
 
     /**
      * Do the work of starting the engine

@@ -1,0 +1,11 @@
+[Unit]
+Description=Scheduler Test
+
+[Service]
+ExecStart=/home/user/daemonctrl.sh start
+ExecStop=/home/user/daemonctrl.sh stop
+Type=forking
+PIDFile=/home/user/example.pid
+
+[Install]
+WantedBy=multi-user.target
